@@ -1,0 +1,583 @@
+Note_Auth : 	Sourav Mishra
+Start_Date:	28 DEC 2014
+Edit_Date :	06 JAN 2015
+Note	  :	Best viewed on default 80x24
+
+===============================================================================
+			Learn Python the Hard way v3
+				by Zed Shaw
+===============================================================================
+
+Simple introduction to python language, as gleaned from the book 'Learn Python
+the Hard way v3.0'.
+
+=======
+PREFACE
+========
+This simple book is meant to get one started in programming. Its called the
+"hard way" because it uses the technique of 'instruction' - doing a sequence of
+controlled exercises, designed to build skills through repetition. 
+Building skills by practice and memorization, and applying to more difficult problems.
+
+=======================
+"The Hard way is easier"
+========================
+The three most important skills:
+* Reading and writing
+* Attention to detail
+* Spotting difference
+Finally, it's all about practice
+
+=================
+Exercise 0: Setup
+=================
+An exercise to run python
+ * Syntax highlighting on in VIM - :syntax enable
+
+=======================
+Exercise 1: Hello World
+=======================
+Debugger indicates the line number, puts ^ to point error, also 
+points out the type of error (SyntaxError for example).
+The octothorpe/hash '#' indicates comments
+* Use 'print' command to print a variable/string
+
+====================
+Exercise 2: Comments
+====================
+Comments are used to describe the program and also disable parts of the program 
+
+* # sign interpreted inside string. It does not disregard it.
+* Using backward reading sometimes helps in catching typo errors
+
+==========================
+Exercise 3: Numbers & Math
+==========================
++  plus
+-  minus
+/  div
+*  mul
+%  remainder (or modulus)
+< less,	  <= less or equal
+> greater >= greater or equal
+
+* One has to explicitly define that a number is float or int for the operation
+  to be carried out in that particular precision.
+* A comma can be used to print on the same line.There are some exceptions. 
+* One can easily combine string/variables/string on the same line by comma.
+* Variables can be computed alongside numbers easily once they are defined.
+* floating point number is to be explicitly defined or introduced. Else int
+
+===============================
+Exercise 4: variables and names
+===============================
+Variable is a name for a quantity so that it can be used instead of
+direct math.
+
+* =  is a assignment operator
+  == is a logical equality test
+
+==================================
+Exercise 5: variables and printing
+==================================
+Using "format string". Quotes makes strings.
+
+* Single quotes make a string constant. Taken as a general convention. Although either of them can work.
+
+* When using string constants, be careful about using the comma.
+Comma was used in substituting variables and values in middle of strings. 
+When one is using formatted output, use % before putting in the comma. 
+
+* We can use formatted output using % and (var1..var n) and then comma for another string output.
+
+* Multiple variables can be treated by using brackets in the order it was introduced in the print command.
+
+===================
+Exercise 6: Strings
+===================
+
+* Strings are used by " (double quotes) and ' (single quotes in str constant).
+* Use formatted output by %. Multiple variables treated with brackets.
+* %r displays raw data of the variable. %s will do the formatting as a string.
+
+=============================
+Exercise 7,8,9: More printing
+=============================
+* Strings can be directly introduced in formatted output. Needn't be assigned to some variable.
+* %r will print sometimes with single and sometimes with double-quotes because it tried to find the best represntation of the line. It's not trying to make things pretty. %s however just does as it is asked to.
+* Three quotes can make something verbatim.
+
+===========================
+Exercise 10: What was that?
+===========================
+Use of \ allows escape sequences; enables us to print difficult characters
+
+\\ 		: single backslash
+\' 		: single quote
+\" 		: double quote
+\a 		: audible bell
+\b 		: backspace
+\f 		: form-feed
+\n 		: line-feed
+\N{name} 	: character name returned in Unicode
+\r 		: carriage return
+\t 		: horizontal TAB
+\u<xxxx> 	: character with 16-bit value xxxx (unicode only)
+\U<xxxxxxxx>	: character with 32-bit value xxxx xxxx (unicode)
+\v 		: vertical TAB
+\ooo 		: octal valued char XXX
+\xhh		: hex value hh character
+
+ Note:
+* %r will not allow any sequence because it is the debug format.
+* Carriage return will return horizontally on the same line
+* Form feed will enter new line and position cursor at the X of previous
+  (horiontally position below where introduced on the previous line)
+* Line feed will bring it on another line,and disregard where it was introduced
+  (It will bring it right on the starting point of the new line.)
+* A comma (,) will tell the python interpreter to print on the same line.
+* A 'print' by default adds a newline character at the end. 
+
+=============================
+Exercise 11: Asking Questions
+=============================
+Think of I/O
+* Use raw_input() to feed value to variable.
+* To convert to int or float, use these keywords and type-cast them
+
+=====================
+Exercise 12: Prompting
+======================
+raw_input can be used with string arguments inside. 
+e.g. x = raw_input("variable value")
+
+=============================================
+Exercise 13: Parameters, Unpacking, Variables
+=============================================
+Passing variables to a script.
+
+* "import" allows to add features/variables from the python feature set. 
+* "argv" is the argument variable - it hold the arguments that is passed to the script.The difference in raw_input and argv is that argv takes in the values directly at the command line, whereas raw_input takes in from executing program.
+* Assignment operation can unpack argv into different variables in the order mentioned.
+
+==================================
+Exercise 14: Prompting and passing
+==================================
+Using argv and raw_input together to ask user specific stuff.
+In this we make a variable prompt (prompt = ">"). 
+We give that to the raw_input as argument to avoid typing over & over.
+
+============================
+Exercise 15: Reading Files
+============================
+Reading and writing files. Assigning a filename with argv, 
+then using the open() to open the file as file-object. Then variable.read() to read
+
+* "print variable_name.read()" will print the content of the file.
+* After working on the variable it is good to do a variable_name.close()
+* From pydoc:
+ read(...)
+ |      read([size]) -> read at most size bytes, returned as a string.
+ |      
+ |      If the size argument is negative or omitted, read until EOF is reached.
+ |      Notice that when in non-blocking mode, less data than what was requested
+ |      may be returned, even if no size parameter was given.
+
+* open() doesn't return the contents of the file and that should be obvious.
+* What it does is, it creates a file object. Its like a virtual object linked to
+* the object in the HDD itself; reading the file object is done later by the
+* read()
+
+======================================
+Exercise 16: Reading and Writing Files
+======================================
+List of important commands to remember:
+
+* open		: opens a file
+* close		: closes a file/variable
+* read		: reads into buffer. One can assign the content to variable
+* readline	: reads just 1 line
+* truncate	: empties the file
+* write		: writes to the file.
+  The different modes are a (append), w (write), r (read)
+* when using without any specification, the file is opened in a read-only mode.
+
+========================
+Exercise 17: More Files
+========================
+Involves copying of file.
+* 'exists' gives a boolean output of True/False for name of file given as a arg
+
+==============================================
+Exercise 18: Names, variables, code, functions
+==============================================
+Functions do essentially three things:
+
+* They name pieces of code, like variables names strings or numerals
+* They take arguments like argv takes for the script
+* They become mini, re-usable code in themselves.
+* Functions created with the keyword 'def', names end with colon.
+* A '*' inside a bracket for function definition can take in variable inputs 
+  which can then be unpacked. e.g 
+	def func(*arg):
+		arg1, arg2 = arg
+		<--------------->
+
+==============================
+Exercise 19-25: Functions
+==============================
+* Function syntax:
+	def function_name():
+		statement
+		
+* The scope of variables inside a function is limited only to function blocks.They will not be visible and usable outside of it. 
+* One can make the function interactive by asking for inputs inside the function space. Numbers can be read once typecasted.
+
+* readline() will read the line it encounters. To read multiple lines, it can beinvoked multiple times. Each time its called, it places the file-head pointer internally at the end of line it has just read (just next to \n), so that another pass will start with the immediately next line.
+
+* readline() also returns the \n which is at the end of the line. print and readline implies each one is adding a newline (print intrinsically uses a \n). Adding a "," at the end of print sentence will supress the newline of print.
+
+* Functions can return values which can be directly assigned to a variable much like how we do in argv. Multiple returns get unpacked in the sequence they are defined.
+
+* Opening python, we can import our script by doing <import my_script_name_without_py>. 
+  A dot (.) will reference any function which is contained inside the script. 
+  A neater way of adding all the function in a script will be
+			from my_script_name import *
+* Function with no return value will often show a None in output. Infact,
+			return None
+			return
+			<Nothing present>
+The three expressions act in similar way. There is a subtle difference. 
+return None can use the None as input to some other process. However, 'return' 
+will be useful only in exiting a program and not having any further information.
+
+| Using return None:
+This tells that the function is indeed meant to return a value for later use, 
+and in this case it returns None. This value None can then be used elsewhere. 
+return None is never used if there are no other possible return values from 
+the function.
+
+| Using return:
+This is used for the same reason as break in loops. The return value doesn't 
+matter and you only want to exit the whole function. It's extremely useful in 
+some places, even tho you don't need it that often.
+
+| Using no return:
+This will also return None, but that value is not meant to be used or caught.
+It simply means that the function ended successfully. It's basically the same 
+as return in void functions in languages such as C++ or Java.
+
+=====================
+Exercise 27,28: Logic
+=====================
+Logic is about evaluating True/False.
+* and, or, not, 
+* !=, ==, >=, <= 
+* True, False
+
+============================
+Excercise 29,30: if and else
+============================
+The convention is as follows,
+	if condition:
+		statement
+	elif condition2:
+		statement
+	else:
+		statement
+
+=============================
+Exercise 31: Making decisions
+=============================
+Branching and decision control can be made using the if, elif and else keywords
+* range in a variable value can be set by range(a,b).
+e.g	
+	for x in range(0,10) ; 
+it will cycle through x=0 to x=9.It cycles through all the numbers, not including the upper limit.
+
+================================
+Exercise 32-36: Loops and Lists
+================================
+* List is a way of storing organized data.
+e.g:	text = ['blue', 'red', 'green']
+
+* for-loop syntax
+	for element in range(a,b):
+		statement
+	for element in list:
+		statement
+* while-loop syntax
+	while condition:
+		statement-block
+* Python starts its list at 0 (unlike MATLAB at 1). The indexing is similar to C
+accessing a element can be done in the usual way of list[element]
+
+* Every if-statement has to have an else
+* If else is not required, have a printout
+* Dont nest if-statements more that 2-level deep
+* boolean tests should be simple if direct; use variables otherwise
+* while loop will ideally loop forever. Use sparingly. "for" is a better loop
+
+
+==========================
+Exercise 37: Symbol Review
+==========================
+Keywords:
+	and, del, from, not, while, as, elif, global, or, with, assert, else
+	if, pass, yield, break, except, import, print, class, exec, in, raise
+	continue, finally, is, return, def, for, lambda, try
+
+Datatype:
+	True, False, None, strings, numbers, floats, lists
+
+ESC sequence:
+	\\, \', \", \a, \b, \f, \n,
+	\r, \t, \v
+
+String constant
+	%d, %i, %o, %u, %x, %X, %e, %f, %F, %g, %G, %c, %r, %s, %%
+
+Operator:
+	+, -, *, /, **, //, %, <, >, <=, >=, ==, !=, (), [], {}, @, ','	
+	;, :, . = , +=, -=, *=, /=, //=, %= **=
+
+============================
+Exercise 38: List operations
+============================
+Python language does something in a very unique way. When we set variable.function(), internaly it looks up the variable first and then hits the period (.); It interprets that as something to look inside the scope of the list "variable". If 'function' exists it grabs that, however the parenthesis tells the interpreter to look for the function somewhere.
+
+e.g: a.function("hello, world) actually interprets as function(a, "hello world). Depending on the nature of function, it may be valid/missing in argument/more in arguments.
+
+* append: append to end of list
+* pop	: pop the first element, 0 is default. -1 will pop last element.
+* join  : join the list to whatever in argument of 'join'
+* split : splits a list with the delimiter specified e.g. " "
+
+We can specify the range of the I/O by the number in the argument. A[3:5] will look ip the 4th to 6th element.
+
+========================
+Excercise 39: Dictionary
+========================
+Python refers to dictionaries as "dicts" - some other languages use "hashes". With lists, we can use numbers, and only numbers to index things. With dictionaries, we can use strings to index things. The format is key:value. We can match keys to other items ("values").
+
+* Keep consistent single/double quotes.
+* Dictionary definition uses a {}, but individual assignment & deletions can use [].* Additon can be done via dict_name['key'] = value, deletion done by index or key
+	del dic['key'] or del dic[1]
+* name.items() can list items in the dic/list
+* From the tutorial documentation:
+Description: The method "get()" returns a value for the given key. If key is not available then returns default value of None.
+
+Syntax:
+		dict.get(key, default=None)
+Parameters:
+    key     -- This is the Key to be searched in the dictionary.
+    default -- This is the Value to be returned in case key does not exist.
+
+Return Value : This method returns a value for the given key. If key is not available, then returns default value None.
+
+Example:
+	dict = {'Name': 'Zara', 'Age': 27}
+	print "Value : %s" %  dict.get('Age')
+	print "Value : %s" %  dict.get('Sex', "Never")
+	>>Value : 27
+	>>Value : Never
+
+=======================================
+Exercise 40: Modules, Classes & Objects
+=======================================
+Python is OOP-language. 
+There is a construct - 'class', which helps structure programs.
+
+* Modules are like dictionaries for functions: 
+	* Module is a py file with some functions and variables.
+	* By 'import', functions and variables can be accessed by '.' (dot)
+	e.g:	
+		#this is in mystuff.py
+		def numgen():
+			print "random number generator"
+		We can access the numgen() by using 'import mystuff'
+		mystuff.numgen()
+
+* Classes are like Modules:
+  Class is a way of grouping functions and data. 
+It places them in a container, which can be accessed by the '.' (dot)
+	e.g:
+		class MyStuff(object):
+			def __init__(state):
+				state.myState = "Binary 0 or 1"
+			def numgen(self):
+				print "Binary"
+
+* The advantage with classes is that we can take a class and use it to craft several of them and they will not interfere with one another. However, importing a module will be a singular entity for the entire program. 
+
+* Objects are like Mini-"imports":
+If a class can be considered to be a mini & self-contained module, the process which is similar to 'import' is caled object. When we import module, we make a single unique copy of the module available for use. When we "import" the class, weare just creating an instance of it  - the instance is called an "object".
+
+	Syntax	myNewObject = MyStuff()
+		myNewObject.numgen()
+		print myNewObject.myState
+
+Classes are like blueprints for program modules and making an instance will create a copy of it. The result is called an object and we can assign it to a variable to work with it.
+		
+* The first line is the instantiate operation
+ > python interpreter looks for MyStuff() and sees it is a class.
+ > Creates an empty object with all function defined by def: for that class
+ > Looks for __init__ and if you have it, calls it to initialize empty object.
+ > We get that extra variable 'state' which is the empty object python created.
+ > Python takes this object and assigns it to the variable called by the user.
+
+This is the basic idea of how python does the "mini import" when we call class like a function. It is not giving the class - but using the class as a blueprint to build a copy of that type of thing.
+* classes are like blueprints for creating new mini-modules.
+* Instantiating creates a copy of the class, called an object and assigns it to the variable user specifies.
+ 
+* Getting things from classes:
+	# dictionary style:
+	mystuff['apple']
+
+	# module style:
+	mystuff.apple()
+	print mystuff.tangerine
+
+	# class method
+	thing = mystuff()
+	thing.apple()
+	print thing.tangerine
+
+
+=============================
+Exercise 41: Object Oriented
+=============================
+Words:
+* class		: Tells python to make a container of functions and variables
+* object	: Instance of a class
+* instance	: Telling python to make a working copy of class i.e object
+* def		: Defining functions inside class
+* self		: Inside functions in class, self is a variable for object.
+* inheritance	: "One class can inherit traits from another class"
+* composition	: "A class can be composed of further classes"
+* attribute	: A property classes have from composition and are variables.
+* is-a		: A phrase to say something inherits from another,
+			"salmon" is-a "fish"
+* has-a		: A phrase to say something is composed of other things
+			"salmon" has-a "fins"
+
+Phrases:
+* class X(Y)		- make class X that is-a Y
+
+* class X(object):
+   def __init__(self,A)	- class X has-a init that takes 'self' and 'A' params
+
+* class X(object):
+   def M(self,B)	- class X has-a function M taking params self and B
+
+* foo = X()		- create foo as instance of X
+
+* foo.M(J)		- from foo, get M and call with params self and J
+
+* foo.K = Q		- from foo take K attribute and set it Q
+
+
+==============================================
+Exercise 42,43: Is-A, Has-A, Objects, Classes 
+==============================================
+Book example:
+	"Mary is a salmon, salmon is a fish"
+'Mary' is instance of a class (an object). 'Salmon' & 'Fish' are classes.
+
+* is-a : Objects and class related to each other by a class relationship
+* has-a: Objects and class related because they reference each other.
+* Inside a class, a variable is termed 'attribute' and a function called 'method'
+* Classes are typically written in camelCase.
+
+
+========================================
+Exercise 44: Inheritance vs. Composition
+========================================
+* Most of the use of inheritance can be replaced by composition.
+* Multiple inheritance should be best avoided.
+
+Inheritance:
+-----------
+One class will get most or all of its features from a parent class.
+			class ChildA(Base)
+
+Doing this lets put common functionality in base class that can be passed on to the child class. When we do this kind of specialization, there are 3 ways parent & child class can interact.
+
+		(1). Action on child imply action on parent
+		(2). Action on child override action on parent.
+		(3). Action on child alter action on parent.
+
+(1) Implicit Inheritance:
+--------------------------
+e.g:	class Parent(object):
+		def implicit(self):
+			print "Parent implicit()"	#print something
+
+	class Child(Parent):
+		pass 					#Lets an empty block
+
+	dad = Parent()
+	son = Child()
+	dad.implicit()
+	son.implicit()
+
+The use of pass under the class Child tells Python that we want an empty block.
+It is like a 'No operation' block.
+Even though we have not defined anything for the Child it implicitly inherits the parent block. If we put functions and variables in base class they will show up in the child class too.
+
+(2) Override Explicitly:		
+------------------------
+Sometimes we want the child class to behave a litle differently from the parent class. We would want to override the function in the child. E.g:
+
+	class Parent(object):
+		def override(self):
+			print "override"
+
+	class Child(Parent):
+		def override(self):
+			print "Child override"
+
+	son = Parent()
+	son.override()		# Prints "Child override"
+
+This function inherits the Parent class but it also overwrites/overrides the print function with something explicitly defined.
+
+(3) Alter Before or After
+-------------------------
+Special case of overriding, where we alter before/after the parent version runs. 
+(First, overriding the function then using super() to get parent version).
+E.g.:
+
+	class Parent(object):
+		def alter(self):
+			print "Parent alter"
+
+
+	class Child(Parent):
+		def alter(self):
+			print "Child before parent alter"
+			super(Child,self).alter()
+			print "Child after parent, alter"
+
+	dad = Parent()
+	son = Child()
+	dad.alter()
+	son.alter()
+
+Reason for super()
+------------------
+super() is required because if classes inherited from just one class, life would have been good. A class can take 2+ class as its arguments in definition. Python interpreter uses method-resolution-order (MRO) to assign the hierarchy among the base classes.
+
+super is used most often with __init__(). See for e.g.,
+		
+	class Child(Parent):
+		def __init__(self,stuff):
+			self.stuff = stuff
+			super(Child,self).__init__()
+
+This is much like the example discussed before where __init__ sets some variables in child. Then having Parent initialize it with Parent.__init__
+
+
+Composition
+-----------
+Inheritance is useful, but another way to do that thing is using other classes and modules, rather than implying on implicit inheritance.

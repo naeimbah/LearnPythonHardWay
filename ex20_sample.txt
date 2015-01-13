@@ -1,0 +1,8 @@
+this is line 1:  text file. meant to be the source file.
+this is line 2: See if it turns up at the destination.
+this is line 3: this is a text file. meant to be the source file.
+this is line 4: See if it turns up at the destination.
+this is line 5: yadiYadiyaada!
+
+
+
